@@ -1,0 +1,25 @@
+name: custom_country_state_city
+description: A new Flutter package to get world's all of Country, State, and City.
+version: 1.0.0
+#homepage: https://github.com/SujitSarkar/Country-State-City-Picker-Pro
+
+environment:
+  #  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.19.2 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# The following section is specific to Flutter.
+flutter:
+  assets:
+    - packages/custom_country_state_city/assets/fr/country.json
+    - packages/custom_country_state_city/assets/en/country.json
+    - packages/custom_country_state_city/assets/en/state.json
+    - packages/custom_country_state_city/assets/en/city.json
