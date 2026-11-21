@@ -10,17 +10,18 @@ In addition if city can't be found then user manually write city on dialog windo
 This widget has been successfully tested on iOS, Android and Chrome.
 
 ## Screenshots
-| Outlook                                   | Country Dialog                            |git
-|-------------------------------------------|-------------------------------------------|
-| ![image info](lib/assets/ex_img/sc_1.jpg) | ![image info](lib/assets/ex_img/sc_2.jpg) |
 
-| Country Searching                         | State Dialog                              |
-|-------------------------------------------|-------------------------------------------|
-| ![image info](lib/assets/ex_img/sc_3.jpg) | ![image info](lib/assets/ex_img/sc_4.jpg) |
+| Outlook | Country Dialog |
+|---|---|
+| ![Outlook](lib/assets/ex_img/sc_1.jpg) | ![Country Dialog](lib/assets/ex_img/sc_2.jpg) |
 
-| City Dialog                               | Final Data                                |
-|-------------------------------------------|-------------------------------------------|
-| ![image info](lib/assets/ex_img/sc_5.jpg) | ![image info](lib/assets/ex_img/sc_6.jpg) |
+| Country Searching | State Dialog |
+|---|---|
+| ![Country Searching](lib/assets/ex_img/sc_3.jpg) | ![State Dialog](lib/assets/ex_img/sc_4.jpg) |
+
+| City Dialog | Final Data |
+|---|---|
+| ![City Dialog](lib/assets/ex_img/sc_5.jpg) | ![Final Data](lib/assets/ex_img/sc_6.jpg) |
 
 ## Usage
 ```dart
