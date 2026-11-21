@@ -1,0 +1,17 @@
+name: example
+description: Minimal example for custom_country_state_city.
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.2 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  custom_country_state_city:
+    path: ../
+
+flutter:
+  uses-material-design: true

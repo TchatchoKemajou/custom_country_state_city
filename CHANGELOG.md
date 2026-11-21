@@ -1,3 +1,13 @@
+## 1.1.0
+
+- Dialog theme-aware : couleurs, texte et bordures tirés de `Theme.of(context).colorScheme` au lieu de valeurs blanches forcées (fonctionne en dark et light mode).
+- Flag emoji (🇨🇦 🇨🇲 🇫🇷…) affiché devant chaque pays.
+- Highlight de l'élément sélectionné avec la couleur primaire + icône check.
+- Search field modernisée (fond filled, bordure arrondie, placeholder cliquable).
+- Full-width `OutlinedButton` pour fermer le dialog.
+- Nouvelles props i18n : `inputSearchHintText` et `closeTextButton` pour que l'appelant puisse passer ses propres strings traduits.
+- Cascade auto au mount : si `country.text` est déjà pré-rempli (mode édition), la liste des régions est hydratée tout de suite. Avant il fallait re-sélectionner Pays pour que l'élément Région apparaisse.
+
 ## 1.0.0
 
 ### Platforms:
