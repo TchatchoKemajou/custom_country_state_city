@@ -141,6 +141,13 @@ class _HomePageState extends State<HomePage> {
 }
 ```
 
-## Connect with
-<a href="mailto:empereurfranck95@gmail.com">empereurfranck95@gmail.com</a><br>
-<a href="https://github.com/TchatchoKemajou">Find more project on github</a>
+## Maintainer
+
+**[Franck Donald Tchatcho Kemajou](https://www.linkedin.com/in/franck-donald/)** — Fondateur [Jov's Inc.](https://inc.jovs.ca/#projets)
+
+- 💼 LinkedIn — [linkedin.com/in/franck-donald](https://www.linkedin.com/in/franck-donald/)
+- 🐙 GitHub — [@TchatchoKemajou](https://github.com/TchatchoKemajou)
+- 🏢 Jov's Inc. — [inc.jovs.ca/#projets](https://inc.jovs.ca/#projets)
+- ✉️ Contact — [empereurfranck95@gmail.com](mailto:empereurfranck95@gmail.com)
+
+Issues et PR bienvenus sur le [repo GitHub](https://github.com/TchatchoKemajou/custom_country_state_city).

@@ -1,3 +1,7 @@
+## 1.1.2
+
+- README : section Maintainer refaite — nom complet, LinkedIn, GitHub, Jov's Inc. (`#projets`), email.
+
 ## 1.1.1
 
 - README : fix la 1ère ligne du tableau Screenshots qui avait un `|git` fautif en bout de ligne et cassait le rendu markdown sur pub.dev (les 3 tableaux apparaissaient comme du texte brut `[image info]` au lieu des images). Alt text amélioré par descriptif.
