@@ -48,12 +48,12 @@ class _HomePageState extends State<_HomePage> {
           city: _cityCtrl,
           locale: 'en',
           spacing: 10,
-          dialogTitle: DialogTitle(
+          dialogTitle: const DialogTitle(
             countryDialogTitle: 'Country',
             stateDialogTitle: 'State',
             cityDialogTitle: 'City',
           ),
-          fieldHintText: FieldHintText(
+          fieldHintText: const FieldHintText(
             countryHintText: 'Country',
             stateHintText: 'State',
             cityHintText: 'City',

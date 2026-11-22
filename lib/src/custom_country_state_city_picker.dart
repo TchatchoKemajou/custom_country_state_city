@@ -7,27 +7,90 @@ import './model/country_model.dart';
 import './model/state_model.dart';
 import 'model/field_hint_text.dart';
 
+/// A stacked picker to select a country, then its state/region, then its city
+/// from strict dropdowns backed by local JSON data (246 countries, 48k+ cities).
+///
+/// Each field opens a themed dialog with a search bar and emits the selected
+/// item through the matching callback. The resolved labels are written to the
+/// three [TextEditingController]s so the caller can read, pre-fill or clear
+/// them at any time.
+///
+/// Example:
+/// ```dart
+/// CustomCountryStateCityPicker(
+///   country: countryCtrl,
+///   state: stateCtrl,
+///   city: cityCtrl,
+///   locale: 'en',
+///   onCountryChanged: (c) => print(c.sortName),
+/// )
+/// ```
 class CustomCountryStateCityPicker extends StatefulWidget {
+  /// Called when the user picks a country in the dialog.
   final ValueChanged<CountryModel>? onCountryChanged;
+
+  /// Called when the user picks a state/region in the dialog.
   final ValueChanged<StateModel>? onStateChanged;
+
+  /// Called when the user picks a city in the dialog.
   final ValueChanged<CityModel>? onCityChanged;
+
+  /// Controller for the country field. Also used to pre-fill the country.
   final TextEditingController country;
+
+  /// Controller for the state/region field. Also used to pre-fill the state.
   final TextEditingController state;
+
+  /// Controller for the city field. Also used to pre-fill the city.
   final TextEditingController city;
+
+  /// Language of the country labels loaded from the bundled JSON assets.
+  /// Supported values: `'en'`, `'fr'`. Defaults to `'en'` when `null`.
   final String? locale;
+
+  /// Custom [InputDecoration] applied to the three text fields.
   final InputDecoration? textFieldDecoration;
+
+  /// Background color of the selection dialog. When `null`, the dialog uses
+  /// `Theme.of(context).dialogTheme.backgroundColor`.
   final Color? dialogColor;
+
+  /// Vertical spacing between the country, state and city fields.
   final double? spacing;
+
+  /// Text style applied to the three text fields.
   final TextStyle? inputStyle;
+
+  /// Hint texts displayed in the country/state/city fields.
   final FieldHintText? fieldHintText;
+
+  /// Titles displayed at the top of the country/state/city dialogs.
   final DialogTitle? dialogTitle;
+
+  /// Snackbar message shown when the user taps the state field without first
+  /// picking a country.
   final String? validateCountrySnackBarMessage;
+
+  /// Snackbar message shown when the user taps the city field without first
+  /// picking a state.
   final String? validateStateSnackBarMessage;
+
+  /// Label of the dialog close button. Defaults to `"Close"`.
   final String? closeTextButton;
+
+  /// Custom [ButtonStyle] for the dialog close button.
   final ButtonStyle? closeButtonStyle;
+
+  /// Hint text of the in-dialog search field. Defaults to `"Search"`.
   final String? inputSearchHintText;
+
+  /// Text style of the in-dialog search field.
   final TextStyle? inputSearchTextStyle;
+
+  /// Custom [InputDecoration] for the in-dialog search field.
   final InputDecoration? inputSearchDecoration;
+
+  /// Padding around the in-dialog search field.
   final EdgeInsetsGeometry? inputSearchPadding;
 
 
@@ -65,8 +128,8 @@ class _CustomCountryStateCityPickerState extends State<CustomCountryStateCityPic
   List<CityModel> _citySubList = [];
   String _title = '';
   String searchKey = '';
-  FieldHintText defaultHintText = FieldHintText();
-  DialogTitle defaultDialogTitle = DialogTitle();
+  FieldHintText defaultHintText = const FieldHintText();
+  DialogTitle defaultDialogTitle = const DialogTitle();
 
   @override
   void initState() {
@@ -257,7 +320,7 @@ class _CustomCountryStateCityPickerState extends State<CustomCountryStateCityPic
     showGeneralDialog(
       barrierLabel: _title,
       barrierDismissible: false,
-      barrierColor: Colors.black.withOpacity(0.5),
+      barrierColor: Colors.black.withValues(alpha: 0.5),
       transitionDuration: const Duration(milliseconds: 350),
       context: context,
       pageBuilder: (context, __, ___) {
@@ -280,7 +343,7 @@ class _CustomCountryStateCityPickerState extends State<CustomCountryStateCityPic
                   decoration: BoxDecoration(
                     // Respect app theme: use dialogColor override if provided,
                     // else the theme's dialog surface (dark-mode aware).
-                    color: widget.dialogColor ?? theme.dialogBackgroundColor,
+                    color: widget.dialogColor ?? theme.dialogTheme.backgroundColor,
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(color: theme.dividerColor, width: 0.5),
                   ),
@@ -292,7 +355,7 @@ class _CustomCountryStateCityPickerState extends State<CustomCountryStateCityPic
                         width: 36,
                         height: 4,
                         decoration: BoxDecoration(
-                          color: scheme.onSurface.withOpacity(0.2),
+                          color: scheme.onSurface.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(2),
                         ),
                       ),
@@ -342,7 +405,7 @@ class _CustomCountryStateCityPickerState extends State<CustomCountryStateCityPic
                           decoration: widget.inputSearchDecoration ??
                               InputDecoration(
                                 filled: true,
-                                fillColor: scheme.onSurface.withOpacity(0.04),
+                                fillColor: scheme.onSurface.withValues(alpha: 0.04),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12),
                                   borderSide: BorderSide(color: theme.dividerColor),
@@ -357,13 +420,13 @@ class _CustomCountryStateCityPickerState extends State<CustomCountryStateCityPic
                                 ),
                                 hintText: widget.inputSearchHintText ?? 'Search here...',
                                 hintStyle: TextStyle(
-                                  color: scheme.onSurface.withOpacity(0.5),
+                                  color: scheme.onSurface.withValues(alpha: 0.5),
                                 ),
                                 contentPadding: const EdgeInsets.symmetric(
                                     vertical: 12, horizontal: 12),
                                 isDense: true,
                                 prefixIcon: Icon(Icons.search,
-                                    color: scheme.onSurface.withOpacity(0.6)),
+                                    color: scheme.onSurface.withValues(alpha: 0.6)),
                               ),
                         ),
                       ),
@@ -432,7 +495,7 @@ class _CustomCountryStateCityPickerState extends State<CustomCountryStateCityPic
                                     horizontal: 12, vertical: 12),
                                 decoration: BoxDecoration(
                                   color: isSelected
-                                      ? scheme.primary.withOpacity(0.10)
+                                      ? scheme.primary.withValues(alpha: 0.10)
                                       : Colors.transparent,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -472,7 +535,7 @@ class _CustomCountryStateCityPickerState extends State<CustomCountryStateCityPic
                             style: widget.closeButtonStyle ??
                                 OutlinedButton.styleFrom(
                                   foregroundColor: scheme.primary,
-                                  side: BorderSide(color: scheme.primary.withOpacity(0.6)),
+                                  side: BorderSide(color: scheme.primary.withValues(alpha: 0.6)),
                                   padding: const EdgeInsets.symmetric(vertical: 12),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12)),

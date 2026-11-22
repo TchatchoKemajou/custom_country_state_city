@@ -1,6 +1,6 @@
 name: custom_country_state_city
 description: Flutter widget to pick a country, state and city from strict dropdowns, with search, 246 countries, 48k+ cities, i18n (fr/en) and theme-aware dialogs.
-version: 1.1.2
+version: 1.1.3
 homepage: https://github.com/TchatchoKemajou/custom_country_state_city
 repository: https://github.com/TchatchoKemajou/custom_country_state_city
 issue_tracker: https://github.com/TchatchoKemajou/custom_country_state_city/issues
